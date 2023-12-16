@@ -61,7 +61,7 @@ void Show(int(*A)[N]) {
     for (int i = 0; i < N; ++i) {
         std::cout << "\t";
         for (int j = 0; j < N; ++j) {
-            if (i == 0) {
+            if (i < N/2 && j < N/2) {
                 SetConsoleTextAttribute(hConsole, 1);
                 destCoord.X = i * 4;
                 destCoord.Y = j;
@@ -69,7 +69,7 @@ void Show(int(*A)[N]) {
                 std::cout << A[i][j];
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
             }
-            if (i == 1) {
+            if (i >= N / 2 && j <= N / 2) {
                 SetConsoleTextAttribute(hConsole, 2);
                 destCoord.X = i * 4;
                 destCoord.Y = j;
@@ -77,7 +77,7 @@ void Show(int(*A)[N]) {
                 std::cout << A[i][j];
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
             }
-            if (i == 2) {
+            if (i <= N / 2 && j >= N / 2) {
                 SetConsoleTextAttribute(hConsole, 3);
                 destCoord.X = i * 4;
                 destCoord.Y = j;
@@ -85,64 +85,8 @@ void Show(int(*A)[N]) {
                 std::cout << A[i][j];
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
             }
-            if (i == 3) {
+            if (i >= N / 2 && j >= N / 2) {
                 SetConsoleTextAttribute(hConsole, 4);
-                destCoord.X = i * 4;
-                destCoord.Y = j;
-                SetConsoleCursorPosition(hStdout, destCoord);
-                std::cout << A[i][j];
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
-            }
-            if (i == 4) {
-                SetConsoleTextAttribute(hConsole, 5);
-                destCoord.X = i * 4;
-                destCoord.Y = j;
-                SetConsoleCursorPosition(hStdout, destCoord);
-                std::cout << A[i][j];
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
-            }
-            if (i == 5) {
-                SetConsoleTextAttribute(hConsole, 6);
-                destCoord.X = i * 4;
-                destCoord.Y = j;
-                SetConsoleCursorPosition(hStdout, destCoord);
-                std::cout << A[i][j];
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
-            }
-            if (i == 6) {
-                SetConsoleTextAttribute(hConsole, 7);
-                destCoord.X = i * 4;
-                destCoord.Y = j;
-                SetConsoleCursorPosition(hStdout, destCoord);
-                std::cout << A[i][j];
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
-            }
-            if (i == 7) {
-                SetConsoleTextAttribute(hConsole, 8);
-                destCoord.X = i * 4;
-                destCoord.Y = j;
-                SetConsoleCursorPosition(hStdout, destCoord);
-                std::cout << A[i][j];
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
-            }
-            if (i == 8) {
-                SetConsoleTextAttribute(hConsole, 9);
-                destCoord.X = i * 4;
-                destCoord.Y = j;
-                SetConsoleCursorPosition(hStdout, destCoord);
-                std::cout << A[i][j];
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
-            }
-            if (i == 9) {
-                SetConsoleTextAttribute(hConsole, 10);
-                destCoord.X = i * 4;
-                destCoord.Y = j;
-                SetConsoleCursorPosition(hStdout, destCoord);
-                std::cout << A[i][j];
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
-            }
-            if (i == 10) {
-                SetConsoleTextAttribute(hConsole, 11);
                 destCoord.X = i * 4;
                 destCoord.Y = j;
                 SetConsoleCursorPosition(hStdout, destCoord);
