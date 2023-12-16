@@ -1,5 +1,7 @@
 #include <iostream>
 #include <Windows.h>
+#include <iomanip>
+#define RAND_RANGE(a, b) (rand() % ((b) - (a) + 1) + (a))
 using namespace std;
 const int N = 6;
 
@@ -51,14 +53,104 @@ void Show(int(*A)[N]) {
     COORD destCoord;
     hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < N; j++)
-        {
-            destCoord.X = i * 4;
-            destCoord.Y = j;
-            SetConsoleCursorPosition(hStdout, destCoord);
-            cout << A[i][j];
+    
+
+    CONSOLE_SCREEN_BUFFER_INFO   csbi; 
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    for (int i = 0; i < N; ++i) {
+        std::cout << "\t";
+        for (int j = 0; j < N; ++j) {
+            if (i == 0) {
+                SetConsoleTextAttribute(hConsole, 1);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 1) {
+                SetConsoleTextAttribute(hConsole, 2);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 2) {
+                SetConsoleTextAttribute(hConsole, 3);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 3) {
+                SetConsoleTextAttribute(hConsole, 4);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 4) {
+                SetConsoleTextAttribute(hConsole, 5);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 5) {
+                SetConsoleTextAttribute(hConsole, 6);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 6) {
+                SetConsoleTextAttribute(hConsole, 7);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 7) {
+                SetConsoleTextAttribute(hConsole, 8);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 8) {
+                SetConsoleTextAttribute(hConsole, 9);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 9) {
+                SetConsoleTextAttribute(hConsole, 10);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
+            if (i == 10) {
+                SetConsoleTextAttribute(hConsole, 11);
+                destCoord.X = i * 4;
+                destCoord.Y = j;
+                SetConsoleCursorPosition(hStdout, destCoord);
+                std::cout << A[i][j];
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), csbi.wAttributes);
+            }
         }
+    }
 }
 
 void SwapA(int(*A)[N]) {
@@ -145,7 +237,6 @@ int main()
     setlocale(0, "");
     srand(time(0));
     int A[N][N];
-    int B[N][N];
     int* end = A[0] + N * N - 1;
     cout << "Задание 1";
     Sleep(2500);
@@ -163,44 +254,44 @@ int main()
         Sleep(2500);
         system("cls");
         Show(A);
-        Sleep(1500);
+        Sleep(3500);
         system("cls");
         SwapA(A);
         Show(A);
-        Sleep(1500);
+        Sleep(3500);
 
         system("cls");
         cout << "Перестановка блоков b";
         Sleep(2500);
         system("cls");
         Show(A);
-        Sleep(1500);
+        Sleep(3500);
         system("cls");
         SwapB(A);
         Show(A);
-        Sleep(1500);
+        Sleep(3500);
 
         system("cls");
         cout << "Перестановка блоков c";
         Sleep(2500);
         system("cls");
         Show(A);
-        Sleep(1500);
+        Sleep(3500);
         system("cls");
         SwapC(A);
         Show(A);
-        Sleep(1500);
+        Sleep(3500);
 
         system("cls");
         cout << "Перестановка блоков d";
         Sleep(2500);
         system("cls");
         Show(A);
-        Sleep(1500);
+        Sleep(3500);
         system("cls");
         SwapD(A);
         Show(A);
-        Sleep(1500);
+        Sleep(3500);
         system("cls");
     }
 
@@ -212,7 +303,7 @@ int main()
     system("cls");
     Sort(A);
     Show(A);
-    Sleep(1500);
+    Sleep(3500);
     system("cls");
 
     cout << "Задание 4";
